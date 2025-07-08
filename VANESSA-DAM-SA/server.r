@@ -1220,9 +1220,9 @@ shinyServer(function(input, output, session) {
       pro_chi_sq_new$total_bout_length <- pro_chi_sq_new$total_bout_length / 60
       pro_chi_sq_new$latency <- pro_chi_sq_new$latency / 60
       pro_chi_sq_new <- as.matrix(pro_chi_sq_new)
-      popplot <- ggetho(dt_curated, aes(y = asleep, colour = genotype), summary_time_window = mins(15)) +
+      popplot <- ggetho(dt_curated, aes(y = asleep, colour = genotype), summary_time_window = mins(input$min)) +
         stat_pop_etho()
-      popplot_wrap <- ggetho(dt_curated, aes(y = asleep, colour = genotype), summary_time_window = mins(15),
+      popplot_wrap <- ggetho(dt_curated, aes(y = asleep, colour = genotype), summary_time_window = mins(input$min),
                              time_wrap = hours(24)) +
         stat_pop_etho()
       df_new <- ggplot_build(popplot)$plot$data   ##########works perfectly - individuals with each day profile
